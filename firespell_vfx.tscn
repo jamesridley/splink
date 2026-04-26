@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://1ht05x2fm2ur"]
+
+[ext_resource type="Texture2D" uid="uid://or00r5w32hf" path="res://assets/New Platformer Pack 1.1/Vector/Tiles/fireball.svg" id="1_roq0w"]
+
+[node name="FirespellVfx" type="Node2D" unique_id=729832144]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203800221]
+texture = ExtResource("1_roq0w")

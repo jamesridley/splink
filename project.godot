@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="splink"
+run/main_scene="uid://u655voy63dn"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 

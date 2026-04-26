@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpellData" format=3 uid="uid://dsr1g11v0ih80"]
+
+[ext_resource type="Script" uid="uid://cbeut4te5ygr8" path="res://spelldata.gd" id="1_65lv3"]
+[ext_resource type="PackedScene" uid="uid://1ht05x2fm2ur" path="res://firespell_vfx.tscn" id="2_kmsff"]
+
+[resource]
+script = ExtResource("1_65lv3")
+name = "fire"
+impulse = 100.0
+vfx_scene = ExtResource("2_kmsff")
+metadata/_custom_type_script = "uid://cbeut4te5ygr8"

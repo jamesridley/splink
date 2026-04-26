@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bs6qny45iknrd"]
+
+[ext_resource type="Script" uid="uid://ci1fhnaalw2tc" path="res://earthspell_pillar.gd" id="1_830ed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc7lf"]
+size = Vector2(96, 287)
+
+[node name="Node2D" type="Node2D" unique_id=322415304 node_paths=PackedStringArray("pillar")]
+script = ExtResource("1_830ed")
+pillar = NodePath("earthspellscene")
+
+[node name="earthspellscene" type="AnimatableBody2D" parent="." unique_id=650940919]
+position = Vector2(0, 677)
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="earthspellscene" unique_id=664750679]
+position = Vector2(0, 140.5)
+shape = SubResource("RectangleShape2D_jc7lf")
