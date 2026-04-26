@@ -4,53 +4,42 @@
 [ext_resource type="Script" uid="uid://cxhfq4y1uxmwn" path="res://ball.gd" id="1_xys6k"]
 [ext_resource type="Script" uid="uid://dggnrouidw83a" path="res://spell_caster.gd" id="2_e0b2u"]
 [ext_resource type="Script" uid="uid://b37wkga32id7t" path="res://spell_receptor.gd" id="2_mnirw"]
-[ext_resource type="Resource" uid="uid://bkontfcpffjph" path="res://earthspell.tres" id="2_wln50"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1snfn"]
-size = Vector2(735, 140.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xys6k"]
-size = Vector2(218.5, 338.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnirw"]
-size = Vector2(120.125, 100.5625)
+[ext_resource type="Resource" uid="uid://dsr1g11v0ih80" path="res://firespell.tres" id="2_wln50"]
+[ext_resource type="PackedScene" uid="uid://dfeasl27c4vj6" path="res://level_1.tscn" id="3_t3an5"]
+[ext_resource type="Resource" uid="uid://bkontfcpffjph" path="res://earthspell.tres" id="3_wcxex"]
+[ext_resource type="Texture2D" uid="uid://de28k3vstuewq" path="res://assets/White Abstract Texture.jpg" id="4_28p6p"]
+[ext_resource type="Script" uid="uid://bn3d400eh5dmo" path="res://camera_2d.gd" id="7_cjnd1"]
+[ext_resource type="SpriteFrames" uid="uid://cggdxughbagm5" path="res://assets/ball_sprites.tres" id="7_qisfs"]
+[ext_resource type="PackedScene" path="res://spell_caster_ui.tscn" id="8_jq02k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1snfn"]
-radius = 15.0
+radius = 34.0
 
 [node name="Node2D" type="Node2D" unique_id=1672291950]
 script = ExtResource("1_psp7o")
 fire_spell = ExtResource("2_wln50")
+earth_spell = ExtResource("3_wcxex")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=57069069]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1990360168]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1738, 1500)
+repeat_times = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=892786068]
-position = Vector2(547, 491)
-shape = SubResource("RectangleShape2D_1snfn")
+[node name="WhiteAbstractTexture" type="Sprite2D" parent="Parallax2D" unique_id=488864092]
+texture_repeat = 2
+position = Vector2(357, 334)
+scale = Vector2(0.5793333, 0.5793333)
+texture = ExtResource("4_28p6p")
+region_enabled = true
+region_rect = Rect2(0, 0, 3000, 2995.91)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1055758530]
+[node name="Level1" parent="." unique_id=2075259162 instance=ExtResource("3_t3an5")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1429397445]
-position = Vector2(921, 270)
-shape = SubResource("RectangleShape2D_xys6k")
-
-[node name="flammable test" type="StaticBody2D" parent="." unique_id=467421515]
-position = Vector2(-337, 6)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="flammable test" unique_id=938972285]
-position = Vector2(957.0625, 328.71875)
-shape = SubResource("RectangleShape2D_mnirw")
-debug_color = Color(0.44155753, 0.59100014, 0.28105927, 0.41960785)
-
-[node name="SpellReceptor" type="Node2D" parent="flammable test" unique_id=1119804823]
-script = ExtResource("2_mnirw")
-is_flammable = true
-metadata/_custom_type_script = "uid://b37wkga32id7t"
-
-[node name="Ball" type="RigidBody2D" parent="." unique_id=937005525]
-position = Vector2(287, 391)
+[node name="Ball" type="RigidBody2D" parent="." unique_id=937005525 node_paths=PackedStringArray("anim")]
+position = Vector2(237, 339)
 mass = 0.148
 script = ExtResource("1_xys6k")
+anim = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=618253389]
 shape = SubResource("CircleShape2D_1snfn")
@@ -59,6 +48,41 @@ shape = SubResource("CircleShape2D_1snfn")
 script = ExtResource("2_mnirw")
 metadata/_custom_type_script = "uid://b37wkga32id7t"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball" unique_id=1687653961]
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("7_qisfs")
+animation = &"flying"
+
 [node name="SpellCaster" type="Node2D" parent="." unique_id=655054750]
 script = ExtResource("2_e0b2u")
 metadata/_custom_type_script = "uid://dggnrouidw83a"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1339988569 node_paths=PackedStringArray("target")]
+position = Vector2(335, 314)
+zoom = Vector2(0.74, 0.74)
+script = ExtResource("7_cjnd1")
+target = NodePath("../Ball")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1850279776]
+offset = Vector2(0, 37.37)
+transform = Transform2D(1, 0, 0, 1, 0, 37.37)
+
+[node name="SpellCasterUi" parent="CanvasLayer" unique_id=43498083 instance=ExtResource("8_jq02k")]
+custom_minimum_size = Vector2(13.22, 6.36)
+hex_radius = 3
+hex_cell_size = 42.0
+dot_radius = 5.0
+max_ink = 100.0
+wrong_spell_ink_cost = 8.0
+base_spell_ink_cost = 12.0
+ink_cost_per_dot = 2.0
+snap_radius_multiplier = 0.75
+shape_match_tolerance = 0.2
+minimum_shape_score = 0.65
+ink_line_width = 6.0
+ink_trail_lifetime = 0.45
+ink_trail_fade_speed = 2.8
+show_hex_outlines = true
+show_hex_coords = false
+
+[connection signal="spell_cast" from="CanvasLayer/SpellCasterUi" to="." method="_on_spell_caster_ui_spell_cast"]

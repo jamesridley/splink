@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cggdxughbagm5"]
+
+[ext_resource type="Texture2D" uid="uid://vu16pelaxbna" path="res://assets/Splink flying animation/1.PNG" id="1_i25eg"]
+[ext_resource type="Texture2D" uid="uid://da7gy0uemng2k" path="res://assets/Splink idle animation/IMG_1034.PNG" id="1_ucjp4"]
+[ext_resource type="Texture2D" uid="uid://drvjgo1ui5ppn" path="res://assets/Splink flying animation/2.PNG" id="2_f4bbp"]
+[ext_resource type="Texture2D" uid="uid://xkyl1l88yyf0" path="res://assets/Splink idle animation/IMG_1035.PNG" id="2_i25eg"]
+[ext_resource type="Texture2D" uid="uid://b821ncu4cen1b" path="res://assets/Splink idle animation/IMG_1036.PNG" id="3_f4bbp"]
+[ext_resource type="Texture2D" uid="uid://blq3fiwmdmwh0" path="res://assets/Splink idle animation/IMG_1037.PNG" id="4_dhx61"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i25eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f4bbp")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ucjp4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i25eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f4bbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dhx61")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

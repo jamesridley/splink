@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_65lv3")
 name = "fire"
-impulse = 100.0
+radius = 128.0
+impulse = 200.0
 vfx_scene = ExtResource("2_kmsff")
 metadata/_custom_type_script = "uid://cbeut4te5ygr8"
