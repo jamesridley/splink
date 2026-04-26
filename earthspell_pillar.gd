@@ -1,7 +1,7 @@
 extends Node2D
 class_name EarthSpellPillar
 
-@export var rise_speed: float = 200.0  # pixels per second
+@export var rise_speed: float = 600.0  # pixels per second
 @export var pillar: Node2D
 
 func _ready() -> void:

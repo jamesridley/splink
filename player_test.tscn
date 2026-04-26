@@ -5,12 +5,16 @@
 [ext_resource type="Script" uid="uid://dggnrouidw83a" path="res://spell_caster.gd" id="2_e0b2u"]
 [ext_resource type="Script" uid="uid://b37wkga32id7t" path="res://spell_receptor.gd" id="2_mnirw"]
 [ext_resource type="Resource" uid="uid://dsr1g11v0ih80" path="res://firespell.tres" id="2_wln50"]
-[ext_resource type="PackedScene" uid="uid://dfeasl27c4vj6" path="res://level_1.tscn" id="3_t3an5"]
 [ext_resource type="Resource" uid="uid://bkontfcpffjph" path="res://earthspell.tres" id="3_wcxex"]
 [ext_resource type="Texture2D" uid="uid://de28k3vstuewq" path="res://assets/White Abstract Texture.jpg" id="4_28p6p"]
+[ext_resource type="PackedScene" uid="uid://5o6l8v4u3bft" path="res://level_2.tscn" id="5_28p6p"]
 [ext_resource type="Script" uid="uid://bn3d400eh5dmo" path="res://camera_2d.gd" id="7_cjnd1"]
 [ext_resource type="SpriteFrames" uid="uid://cggdxughbagm5" path="res://assets/ball_sprites.tres" id="7_qisfs"]
 [ext_resource type="PackedScene" path="res://spell_caster_ui.tscn" id="8_jq02k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_28p6p"]
+rough = true
+bounce = 0.18
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1snfn"]
 radius = 34.0
@@ -33,11 +37,13 @@ texture = ExtResource("4_28p6p")
 region_enabled = true
 region_rect = Rect2(0, 0, 3000, 2995.91)
 
-[node name="Level1" parent="." unique_id=2075259162 instance=ExtResource("3_t3an5")]
+[node name="Level1" parent="." unique_id=2075259162 instance=ExtResource("5_28p6p")]
+position = Vector2(82, -57)
 
 [node name="Ball" type="RigidBody2D" parent="." unique_id=937005525 node_paths=PackedStringArray("anim")]
 position = Vector2(237, 339)
 mass = 0.148
+physics_material_override = SubResource("PhysicsMaterial_28p6p")
 script = ExtResource("1_xys6k")
 anim = NodePath("AnimatedSprite2D")
 
