@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cahisg3t3l8hf"]
+
+[node name="Node2D" type="Node2D" unique_id=243168402]
+
+[node name="Label" type="Label" parent="." unique_id=548850499]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 38
+text = "You win!"
+horizontal_alignment = 1
+vertical_alignment = 1

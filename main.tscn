@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bj20bqef0r6ky"]
+
+[ext_resource type="Script" uid="uid://dbhstc8uxucp1" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Resource" uid="uid://dsr1g11v0ih80" path="res://firespell.tres" id="2_5vw27"]
+[ext_resource type="PackedScene" uid="uid://dfeasl27c4vj6" path="res://level_1.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://5o6l8v4u3bft" path="res://level_2.tscn" id="3_1bvp3"]
+[ext_resource type="Resource" uid="uid://bkontfcpffjph" path="res://earthspell.tres" id="3_kek77"]
+[ext_resource type="PackedScene" uid="uid://djnrwqbgdh1fl" path="res://spell_caster_ui.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cahisg3t3l8hf" path="res://winscreen.tscn" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://de28k3vstuewq" path="res://assets/White Abstract Texture.jpg" id="5_4c57u"]
+[ext_resource type="Script" uid="uid://bn3d400eh5dmo" path="res://camera_2d.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://dggnrouidw83a" path="res://spell_caster.gd" id="6_7mycd"]
+
+[node name="main" type="Node2D" unique_id=1811870518 node_paths=PackedStringArray("starting_level")]
+script = ExtResource("1_ig7tw")
+starting_level = NodePath("Level1")
+fire_spell = ExtResource("2_5vw27")
+earth_spell = ExtResource("3_kek77")
+win_screen = ExtResource("4_kek77")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2090457430]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(1738, 1500)
+repeat_times = 3
+
+[node name="WhiteAbstractTexture" type="Sprite2D" parent="Parallax2D" unique_id=2057986265]
+texture_repeat = 2
+position = Vector2(357, 334)
+scale = Vector2(0.5793333, 0.5793333)
+texture = ExtResource("5_4c57u")
+region_enabled = true
+region_rect = Rect2(0, 0, 3000, 2995.91)
+
+[node name="Level1" parent="." unique_id=2075259162 node_paths=PackedStringArray("next_lvl") instance=ExtResource("2_h2yge")]
+next_lvl = NodePath("../Level2")
+
+[node name="Level2" parent="." unique_id=1619708149 instance=ExtResource("3_1bvp3")]
+position = Vector2(4366, -73)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=523011055]
+position = Vector2(335, 314)
+zoom = Vector2(0.74, 0.74)
+script = ExtResource("5_lquwl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=712998353]
+offset = Vector2(0, 37.37)
+transform = Transform2D(1, 0, 0, 1, 0, 37.37)
+
+[node name="SpellCasterUi" parent="CanvasLayer" unique_id=43498083 instance=ExtResource("4_1bvp3")]
+custom_minimum_size = Vector2(13.22, 6.36)
+
+[node name="SpellCaster" type="Node2D" parent="." unique_id=1224023616]
+script = ExtResource("6_7mycd")
+metadata/_custom_type_script = "uid://dggnrouidw83a"
+
+[connection signal="spell_cast" from="CanvasLayer/SpellCasterUi" to="." method="_on_spell_caster_ui_spell_cast"]

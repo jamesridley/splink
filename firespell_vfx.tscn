@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://1ht05x2fm2ur"]
 
+[ext_resource type="Script" uid="uid://cc1h55454maku" path="res://firespell_vfx.gd" id="1_h2tuq"]
 [ext_resource type="Texture2D" uid="uid://or00r5w32hf" path="res://assets/New Platformer Pack 1.1/Vector/Tiles/fireball.svg" id="1_roq0w"]
+[ext_resource type="SpriteFrames" uid="uid://dw2b8mhij0kac" path="res://assets/fire_anim.tres" id="2_p26ap"]
 
 [node name="FirespellVfx" type="Node2D" unique_id=729832144]
+script = ExtResource("1_h2tuq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1203800221]
+visible = false
 texture = ExtResource("1_roq0w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1850724525]
+scale = Vector2(0.15136719, 0.15136717)
+sprite_frames = ExtResource("2_p26ap")

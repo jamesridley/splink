@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dw2b8mhij0kac"]
+
+[ext_resource type="Texture2D" uid="uid://dwybhgmb6r12n" path="res://assets/Fire spell animation/IMG_1048.PNG" id="1_f0b4c"]
+[ext_resource type="Texture2D" uid="uid://chspr7hc0pym5" path="res://assets/Fire spell animation/IMG_1049.PNG" id="2_7lrtj"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f0b4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7lrtj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]

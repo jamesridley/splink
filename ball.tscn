@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b2weubbbvbhq1"]
+
+[ext_resource type="Script" uid="uid://cxhfq4y1uxmwn" path="res://ball.gd" id="1_ktgx5"]
+[ext_resource type="Script" uid="uid://b37wkga32id7t" path="res://spell_receptor.gd" id="2_hgol0"]
+[ext_resource type="SpriteFrames" uid="uid://cggdxughbagm5" path="res://assets/ball_sprites.tres" id="3_n5601"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_28p6p"]
+rough = true
+bounce = 0.18
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1snfn"]
+radius = 34.0
+
+[node name="Ball" type="RigidBody2D" unique_id=828422914 node_paths=PackedStringArray("anim") groups=["player"]]
+mass = 0.148
+physics_material_override = SubResource("PhysicsMaterial_28p6p")
+script = ExtResource("1_ktgx5")
+anim = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1247292707]
+shape = SubResource("CircleShape2D_1snfn")
+
+[node name="SpellReceptor" type="Node2D" parent="." unique_id=2073677974]
+script = ExtResource("2_hgol0")
+metadata/_custom_type_script = "uid://b37wkga32id7t"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1570001517]
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("3_n5601")
+animation = &"flying"

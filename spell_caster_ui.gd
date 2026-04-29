@@ -505,7 +505,8 @@ func _failSpell() -> void:
 	_clearDrawing()
 
 	if current_ink <= 0.0:
-		get_tree().reload_current_scene()
+		#get_tree().reload_current_scene()
+		print("out of ink")
 
 
 func _addInkTrailPoint(mouse_pos: Vector2) -> void:
@@ -514,6 +515,9 @@ func _addInkTrailPoint(mouse_pos: Vector2) -> void:
 		"life": ink_trail_lifetime
 	})
 
+func resetInk() -> void:
+	current_ink = max_ink
+	ink_changed.emit(current_ink, max_ink)
 
 func _clearDrawing() -> void:
 	selected_hexes.clear()
@@ -535,13 +539,13 @@ func _drawHexGrid() -> void:
 	for coord in hex_positions.keys():
 		var center: Vector2 = hex_positions[coord]
 
-		var dot_color: Color = Color(1, 1, 1, 0.45)
+		var dot_color: Color = Color.BLUE_VIOLET
 
 		if selected_hexes.has(coord):
-			dot_color = Color(1, 1, 1, 1.0)
+			dot_color = Color.BLUE_VIOLET
 
 		if coord == hovered_hex:
-			dot_color = Color(0.7, 0.9, 1.0, 1.0)
+			dot_color = Color.BLUE_VIOLET
 
 		line_drawer.draw_circle(center, dot_radius, dot_color)
 
@@ -555,7 +559,7 @@ func _drawHexGrid() -> void:
 		line_drawer.draw_line(
 			a["position"],
 			b["position"],
-			Color(1, 1, 1, alpha),
+			Color.BLUE_VIOLET,
 			ink_line_width
 		)
 

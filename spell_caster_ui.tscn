@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://e3cgo1t2petg"]
+[gd_scene format=3 uid="uid://djnrwqbgdh1fl"]
 
-[ext_resource type="Script" uid="uid://7b6bm53oqoki" path="res://spell_caster_ui.gd" id="1_r1jht"]
+[ext_resource type="Script" uid="uid://cxs03up303pbx" path="res://spell_caster_ui.gd" id="1_r1jht"]
 
 [node name="SpellCasterUi" type="Control" unique_id=43498083 node_paths=PackedStringArray("grid_area", "line_drawer", "fail_animation_player")]
 layout_mode = 3
@@ -14,21 +14,6 @@ script = ExtResource("1_r1jht")
 grid_area = NodePath("GridArea")
 line_drawer = NodePath("GridArea/LineDrawer")
 fail_animation_player = NodePath("FailAnimationPlayer")
-hex_radius = null
-hex_cell_size = null
-dot_radius = null
-max_ink = null
-wrong_spell_ink_cost = null
-base_spell_ink_cost = null
-ink_cost_per_dot = null
-snap_radius_multiplier = null
-shape_match_tolerance = null
-minimum_shape_score = null
-ink_line_width = null
-ink_trail_lifetime = null
-ink_trail_fade_speed = null
-show_hex_outlines = null
-show_hex_coords = null
 
 [node name="Background" type="ColorRect" parent="." unique_id=1006013414]
 custom_minimum_size = Vector2(0, 10)

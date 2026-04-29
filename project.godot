@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="splink"
-run/main_scene="uid://u655voy63dn"
+run/main_scene="uid://bj20bqef0r6ky"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
+
+[global_group]
+
+player=""
 
 [rendering]
 
